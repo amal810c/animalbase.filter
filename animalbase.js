@@ -26,6 +26,10 @@ function start() {
     .querySelector("[data-filter=all]")
     .addEventListener("click", showAllAnimals);
 
+  document
+    .querySelector("[data-sort=name]")
+    .addEventListener("click", sortAnimalByNames);
+
   loadJSON();
 }
 
@@ -54,6 +58,20 @@ function preapareObject(jsonObject) {
   animal.age = jsonObject.age;
 
   return animal;
+}
+
+function sortAnimalByNames() {
+  console.log("sort");
+  allAnimals.sort(compareNames);
+  displayList(allAnimals);
+}
+
+function compareNames(a, b) {
+  if (a.name < b.name) {
+    return -1;
+  } else {
+    return 1;
+  }
 }
 
 function showAllCats() {
