@@ -52,6 +52,7 @@ function preapareObject(jsonObject) {
   const animal = Object.create(Animal);
 
   const texts = jsonObject.fullname.split(" ");
+
   animal.name = texts[0];
   animal.desc = texts[2];
   animal.type = texts[3];
